@@ -2,7 +2,6 @@ import {Button, Header} from "semantic-ui-react";
 import styles from "./Item.module.css";
 
 export default function Item({item}) {
-    console.log(item);
     const {image_link, name, price, description, category, product_type} = item;
     return (
         <>
@@ -12,7 +11,7 @@ export default function Item({item}) {
                 </div>
                 <div className={styles.info_item}>
                     <strong className={styles.tit_item}>{name}</strong>
-                    <strong className={styles.num_price}>{price}</strong>
+                    <strong className={styles.num_price}>${price}</strong>
                     <span className={styles.txt_info}>
                     {category ? `${category}/` : ""}
                         {product_type}
