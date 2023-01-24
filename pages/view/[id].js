@@ -2,7 +2,7 @@ import Head from "next/head";
 import Axios from "axios";
 import Item from "../../src/component/Item"
 
-const Post = ({item}) => {
+const Post = ({item, name}) => {
     // const router = useRouter();
     // const {id} = router.query;
     // const [item, setItem] = useState({});
@@ -36,6 +36,7 @@ const Post = ({item}) => {
                 <title>{item.name}</title>
                 <meta name={"description"} content={item.description}/>
             </Head>
+            {name} 환경입니다.
             {item && <Item item={item}/>}
         </>
 
@@ -51,7 +52,8 @@ export async function getServerSideProps(context) {
     const data = res.data;
     return {
         props: {
-            item: data
+            item: data,
+            name: process.env.name
         }
     }
 
